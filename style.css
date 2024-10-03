@@ -32,7 +32,7 @@ body {
     margin: 0;
     padding: 0;
     color: #333;
-    background: linear-gradient(rgba(255, 255, 255, 0.8), rgba(255, 255, 255, 0.8)), url('img/fondo.jpg') no-repeat center center fixed; /* Ruta corregida de la imagen */
+    background: lightblue ; /* Ruta corregida de la imagen */
     background-size: cover; /* Asegúrate de que la imagen cubra todo el fondo */
     background-attachment: fixed; /* Mantiene la imagen de fondo fija al hacer scroll */
 }

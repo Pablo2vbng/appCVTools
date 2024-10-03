@@ -11,8 +11,9 @@
 <body>
     <h1>Formulario de Señalización y Personalizaciones</h1>
     <h1> <img src="img/ANAGRAMA.bmp" alt="logo"> </h1>
+
+    <!-- Formulario 1: Señalización Metálica -->
     <form id="formSeñalizacion" action="#" method="POST" enctype="multipart/form-data">
-        
         <h2>Señalización Metálica</h2>
         <label>Tipo de señal:</label>
         <select name="tipoSeñal" id="tipoSeñal">
@@ -124,13 +125,18 @@
         <!-- Botón para añadir la señal seleccionada -->
         <button type="button" id="añadirImagenSeñal">Añadir Imagen a la Señal</button>
         <button type="button" id="añadirSeñal">Añadir Señal al pedido</button>
-        
 
+        <!-- Lista de señales añadidas -->
         <div id="listaSeñales">
             <h3>Señales añadidas:</h3>
             <ul id="señalesAñadidas"></ul>
         </div>
-        <h1>_________________________________</h1>
+    </form>
+
+    <h1>_________________________________</h1>
+
+    <!-- Formulario 2: Personalizaciones Fuera de Catálogo -->
+    <form id="formPersonalizaciones" action="#" method="POST" enctype="multipart/form-data">
         <h2>Personalizaciones Fuera de Catálogo</h2>
         <label>Material:</label>
         <select name="material">
@@ -157,21 +163,22 @@
 
         <!-- Botón para añadir personalización fuera de catálogo -->
         <button type="button" id="añadirImagenPersonalizacion">Añadir Imagen a la Personalización</button>
-        <button type="button" id="añadirPersonalizacion">Añadir producto personalizado al pedido</button>
-        
+        <button type="button" id="añadirPersonalizacion">Añadir Personalización</button>
 
+        <!-- Lista de personalizaciones añadidas -->
         <div id="listaPersonalizaciones">
             <h3>Personalizaciones añadidas:</h3>
             <ul id="personalizacionesAñadidas"></ul>
         </div>
-        <h1>_________________________________</h1>
-        <!-- Botón para generar PDF con todos los datos -->
-        <button type="button" id="generarPDF">Generar PDF</button>
-        <p>Se descargará el pdf. Por favor, enviar a pedidos@cvtools.es</p>
-        <p>¡GRACIAS POR VUESTRA COLABORACIÓN!</p>
-
-        <!-- Botón para limpiar el formulario -->
-        <button type="button" id="limpiarFormulario">Limpiar Formulario</button>
     </form>
+
+    <!-- Botón para generar el pedido en PDF -->
+    <button type="button" id="generarPDF">Generar PDF con el pedido</button>
+
+    <!-- Lista de señales añadidas (Sección Global) -->
+    <div id="listaFinalSeñales">
+        <h3>Lista Final de Señales y Personalizaciones:</h3>
+        <ul id="listaFinal"></ul>
+    </div>
 </body>
 </html>
