@@ -23,8 +23,8 @@
         <div id="definitivas" style="display:none;">
             <label>Tipo:</label>
             <select name="tipoDefinitiva" id="tipoDefinitiva">
-                <option value="MOPU">MOPU (Definitivas)</option>
-                <option value="MOPT">MOPT (Obras)</option>
+                <option value="MOPU">MOPU (Definitivas fondo blanco)</option>
+                <option value="MOPT">MOPT (Obras fondo amarillo)</option>
             </select>
 
             <label>Medidas:</label>
@@ -69,6 +69,8 @@
 
             <!-- Botón para ver PDF de señales homologadas -->
             <button type="button" onclick="verPDF('pdfs/SEÑALES HOMOLOGADAS.pdf')">Ver Señales Homologadas</button>
+            <button type="button" onclick="verPDF('pdfs/SEÑALES METÁLICAS MOPU.pdf')">Ficha técnica señales MOPU (DEFINITIVAS)</button>
+            <button type="button" onclick="verPDF('pdfs/SEÑALES METALICAS MOPT.pdf')">Ficha técnica señales MOPT (OBRAS)</button>
         </div>
 
         <div id="economica" style="display:none;">
@@ -104,6 +106,7 @@
 
             <!-- Botón para ver PDF de señales económicas -->
             <button type="button" onclick="verPDF('pdfs/SEÑALES ECONOMICAS.pdf')">Ver Señales Económicas</button>
+            <button type="button" onclick="verPDF('pdfs/SEÑALES METÁLICAS ECONÓMICAS.pdf')">Ficha técnica señales económicas</button>
         </div>
 
         <!-- Campo para ingresar la referencia de la señal -->
@@ -119,7 +122,7 @@
         <input type="file" name="imagen" id="imagen" accept="image/png, image/jpeg">
 
         <!-- Botón para añadir la señal seleccionada -->
-        <button type="button" id="añadirSeñal">Añadir Señal</button>
+        <button type="button" id="añadirSeñal">Añadir Señal al pedido</button>
         <button type="button" id="añadirImagenSeñal">Añadir Imagen a la Señal</button>
 
         <div id="listaSeñales">
@@ -152,7 +155,7 @@
         <input type="file" name="imagenPersonalizacion" id="imagenPersonalizacion" accept="image/png, image/jpeg">
 
         <!-- Botón para añadir personalización fuera de catálogo -->
-        <button type="button" id="añadirPersonalizacion">Añadir Personalización</button>
+        <button type="button" id="añadirPersonalizacion">Añadir producto personalizado al pedido</button>
         <button type="button" id="añadirImagenPersonalizacion">Añadir Imagen a la Personalización</button>
 
         <div id="listaPersonalizaciones">
