@@ -27,6 +27,9 @@ document.getElementById("añadirSeñal").addEventListener("click", function() {
     const cantidad = document.getElementById("cantidad").value;
     const medidas = document.getElementById("medidas").value;
     const reflectancia = document.getElementById("reflectancia").value;
+    
+    // Capturar los comentarios del cliente para señalización económica
+    const comentariosEconomica = document.getElementById("comentariosEconomica") ? document.getElementById("comentariosEconomica").value : "";
 
     let señal = {
         tipoSeñal,
@@ -35,6 +38,7 @@ document.getElementById("añadirSeñal").addEventListener("click", function() {
         cantidad,
         medidas,
         reflectancia,
+        comentariosEconomica,  // Añadimos los comentarios del cliente
         imagen: null // Aquí se añadirá la imagen si se selecciona una
     };
 
@@ -103,6 +107,9 @@ function actualizarListaSeñales() {
     señales.forEach((señal, index) => {
         let item = document.createElement("li");
         item.textContent = `Señal ${index + 1}: ${señal.tipoSeñal} - ${señal.tipoObra} - ${señal.referenciaSeñal} - Medidas: ${señal.medidas} - Reflectancia: ${señal.reflectancia} - Cantidad: ${señal.cantidad}`;
+        if (señal.comentariosEconomica) {
+            item.textContent += ` - Comentarios: ${señal.comentariosEconomica}`;  // Mostrar los comentarios
+        }
         if (señal.imagen) {
             let imagen = document.createElement("img");
             imagen.src = señal.imagen;
@@ -179,6 +186,11 @@ document.getElementById("generarPDF").addEventListener("click", function() {
             doc.text(señal.reflectancia || '-', 110, offsetY);
             doc.text(señal.referenciaSeñal, 140, offsetY);
             doc.text(señal.cantidad, 170, offsetY);
+
+            if (señal.comentariosEconomica) {
+                doc.text(`Comentarios: ${señal.comentariosEconomica}`, 30, offsetY + 10);  // Añadir los comentarios en el PDF
+                offsetY += 5;
+            }
 
             if (señal.imagen) {
                 const img = new Image();

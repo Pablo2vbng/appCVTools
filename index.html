@@ -9,8 +9,8 @@
     <script src="js.js" defer></script> <!-- Archivo js.js -->
 </head>
 <body>
-    <h1>Formulario de Señalización y personalizaciones</h1>
-    <h1> <img src="img\ANAGRAMA.bmp" text-align = "center" alt="logo"> </h1>
+    <h1>Formulario de Señalización y Personalizaciones</h1>
+    <h1> <img src="img/ANAGRAMA.bmp" alt="logo"> </h1>
     <form id="formSeñalizacion" action="#" method="POST" enctype="multipart/form-data">
         
         <h2>Señalización Metálica</h2>
@@ -19,7 +19,6 @@
             <option value="economica">Económica</option>
             <option value="homologada">Homologada</option>
         </select>
-
 
         <div id="definitivas" style="display:none;">
             <label>Tipo:</label>
@@ -87,6 +86,10 @@
                 <optgroup label="Stops"></optgroup>
                     <option value="50">50 cm</option>
                 </optgroup>
+                <optgroup label="Rectangulares"></optgroup>
+                    <option value="40x20">40 x 20 cm</option>
+                    <option value="55x35">55 x 35 cm</option>
+                </optgroup>
             </select>
 
             <label>Fondo:</label>
@@ -94,6 +97,10 @@
                 <option value="amarillo">Amarillo (Obra)</option>
                 <option value="blanco">Blanco (Definitiva)</option>
             </select>
+
+            <!-- Campo de comentarios del cliente -->
+            <label>Comentarios del cliente:</label>
+            <textarea id="comentariosEconomica" placeholder="Ingrese sus comentarios aquí"></textarea>
 
             <!-- Botón para ver PDF de señales económicas -->
             <button type="button" onclick="verPDF('pdfs/SEÑALES ECONOMICAS.pdf')">Ver Señales Económicas</button>
@@ -106,16 +113,14 @@
         <!-- Campo para la cantidad -->
         <label>Cantidad:</label>
         <input type="number" name="cantidad" id="cantidad" min="1" value="1">
-         <!-- Botón para añadir imagen a la señal -->
-         <label>Si lo deseas puedes añadir una imagen. Selecciona una imagen (JPG o PNG):</label>
-         <input type="file" name="imagen" id="imagen" accept="image/png, image/jpeg">
-         
+        
+        <!-- Botón para añadir imagen a la señal -->
+        <label>Si lo deseas puedes añadir una imagen. Selecciona una imagen (JPG o PNG):</label>
+        <input type="file" name="imagen" id="imagen" accept="image/png, image/jpeg">
 
         <!-- Botón para añadir la señal seleccionada -->
         <button type="button" id="añadirSeñal">Añadir Señal</button>
         <button type="button" id="añadirImagenSeñal">Añadir Imagen a la Señal</button>
-
-       
 
         <div id="listaSeñales">
             <h3>Señales añadidas:</h3>
@@ -145,7 +150,6 @@
         <!-- Campo para seleccionar la imagen de personalización -->
         <label>Si lo deseas puedes añadir una imagen. Selecciona una imagen (JPG o PNG):</label>
         <input type="file" name="imagenPersonalizacion" id="imagenPersonalizacion" accept="image/png, image/jpeg">
-        
 
         <!-- Botón para añadir personalización fuera de catálogo -->
         <button type="button" id="añadirPersonalizacion">Añadir Personalización</button>
