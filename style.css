@@ -1,4 +1,10 @@
 /* Estilo para los botones */
+img{
+    max-width: 150px;
+}
+p{
+    text-align: center;
+}
 button {
     width: 100%;
     padding: 6px; /* Tamaño de padding reducido para hacerlos más pequeños */

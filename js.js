@@ -136,90 +136,99 @@ document.getElementById("generarPDF").addEventListener("click", function() {
     const { jsPDF } = window.jspdf;
     const doc = new jsPDF();
 
-    // Cambiar el título del documento
-    doc.setFontSize(16);
-    doc.setTextColor(0, 51, 102); // Azul oscuro para el título
-    doc.text("FORMULARIO PETICIÓN SEÑALIZACIÓN Y PERSONALIZACIONES", 10, 10);
+    // Obtener el nombre del cliente
+    const nombreCliente = prompt("Por favor, introduce el nombre de la empresa:");
+    if (nombreCliente) {
+        // Cambiar el título del documento
+        doc.setFontSize(16);
+        doc.setTextColor(0, 51, 102); // Azul oscuro para el título
+        doc.text("FORMULARIO PETICIÓN SEÑALIZACIÓN Y PERSONALIZACIONES", 10, 10);
 
-    // Sección de "SEÑAL METÁLICA"
-    doc.setFontSize(12);
-    doc.setTextColor(0, 0, 0); // Color negro para subtítulos
-    doc.text("SEÑAL METÁLICA", 10, 20);
+        // Añadir el nombre del cliente al PDF
+        doc.setFontSize(12);
+        doc.setTextColor(0, 0, 0); // Negro para subtítulos
+        doc.text(`Nombre de la Empresa: ${nombreCliente}`, 10, 20); // Mostrar el nombre de la empresa
 
-    // Títulos de la tabla
-    let offsetY = 30;
-    doc.setFontSize(10);
-    doc.setTextColor(105, 105, 105); // Gris para títulos de columnas
-    doc.text("POSICIÓN", 10, offsetY);
-    doc.text("TIPO DE SEÑAL", 30, offsetY);
-    doc.text("TIPO", 70, offsetY);
-    doc.text("MEDIDAS", 90, offsetY);
-    doc.text("REFLECTANCIA", 110, offsetY);
-    doc.text("REFERENCIA", 140, offsetY);
-    doc.text("CANTIDAD", 170, offsetY);
-    doc.text("IMAGEN", 190, offsetY);
+        // Sección de "SEÑAL METÁLICA"
+        doc.setFontSize(12);
+        doc.setTextColor(0, 0, 0); // Negro para subtítulos
+        doc.text("SEÑAL METÁLICA", 10, 30);
 
-    offsetY += 10;
+        // Títulos de la tabla
+        let offsetY = 40;
+        doc.setFontSize(10);
+        doc.setTextColor(105, 105, 105); // Gris para títulos de columnas
+        doc.text("POSICIÓN", 10, offsetY);
+        doc.text("TIPO DE SEÑAL", 30, offsetY);
+        doc.text("TIPO", 70, offsetY);
+        doc.text("MEDIDAS", 90, offsetY);
+        doc.text("REFLECTANCIA", 110, offsetY);
+        doc.text("REFERENCIA", 140, offsetY);
+        doc.text("CANTIDAD", 170, offsetY);
+        doc.text("IMAGEN", 190, offsetY);
 
-    // Añadir datos de las señales
-    señales.forEach((señal, index) => {
-        doc.setTextColor(0, 0, 0); // Negro para contenido
-        doc.text(`${index + 1}`, 10, offsetY);
-        doc.text(señal.tipoSeñal, 30, offsetY);
-        doc.text(señal.tipoObra || '-', 70, offsetY);
-        doc.text(señal.medidas || '-', 90, offsetY);
-        doc.text(señal.reflectancia || '-', 110, offsetY);
-        doc.text(señal.referenciaSeñal, 140, offsetY);
-        doc.text(señal.cantidad, 170, offsetY);
+        offsetY += 10;
 
-        if (señal.imagen) {
-            const img = new Image();
-            img.src = señal.imagen;
-            doc.addImage(img, 'JPEG', 190, offsetY - 5, 20, 20); // Añadir imagen de la señal
-        }
+        // Añadir datos de las señales
+        señales.forEach((señal, index) => {
+            doc.setTextColor(0, 0, 0); // Negro para contenido
+            doc.text(`${index + 1}`, 10, offsetY);
+            doc.text(señal.tipoSeñal, 30, offsetY);
+            doc.text(señal.tipoObra || '-', 70, offsetY);
+            doc.text(señal.medidas || '-', 90, offsetY);
+            doc.text(señal.reflectancia || '-', 110, offsetY);
+            doc.text(señal.referenciaSeñal, 140, offsetY);
+            doc.text(señal.cantidad, 170, offsetY);
 
-        offsetY += 25; // Espacio entre filas
-    });
+            if (señal.imagen) {
+                const img = new Image();
+                img.src = señal.imagen;
+                doc.addImage(img, 'JPEG', 190, offsetY - 5, 20, 20); // Añadir imagen de la señal
+            }
 
-    // Sección de "PERSONALIZACIONES FUERA DE CATÁLOGO"
-    doc.setFontSize(12);
-    doc.setTextColor(0, 0, 0); // Negro para subtítulos
-    doc.text("PERSONALIZACIONES FUERA DE CATÁLOGO", 10, offsetY + 10);
+            offsetY += 25; // Espacio entre filas
+        });
 
-    offsetY += 20;
+        // Sección de "PERSONALIZACIONES FUERA DE CATÁLOGO"
+        doc.setFontSize(12);
+        doc.setTextColor(0, 0, 0); // Negro para subtítulos
+        doc.text("PERSONALIZACIONES FUERA DE CATÁLOGO", 10, offsetY + 10);
 
-    // Títulos de la tabla de personalizaciones
-    doc.setFontSize(10);
-    doc.setTextColor(105, 105, 105); // Gris para títulos de columnas
-    doc.text("POSICIÓN", 10, offsetY);
-    doc.text("MATERIAL", 30, offsetY); // Columna para material
-    doc.text("MEDIDAS", 70, offsetY);
-    doc.text("DESCRIPCIÓN", 110, offsetY);
-    doc.text("CANTIDAD", 170, offsetY);
-    doc.text("IMAGEN", 200, offsetY); // Ajuste de posición
+        offsetY += 20;
 
-    offsetY += 10;
+        // Títulos de la tabla de personalizaciones
+        doc.setFontSize(10);
+        doc.setTextColor(105, 105, 105); // Gris para títulos de columnas
+        doc.text("POSICIÓN", 10, offsetY);
+        doc.text("MEDIDAS", 30, offsetY);
+        doc.text("DESCRIPCIÓN", 70, offsetY);
+        doc.text("CANTIDAD", 140, offsetY);
+        doc.text("IMAGEN", 170, offsetY);
 
-    // Añadir datos de las personalizaciones
-    personalizaciones.forEach((personalizacion, index) => {
-        doc.setTextColor(0, 0, 0); // Negro para contenido
-        doc.text(`${index + 1}`, 10, offsetY);
-        doc.text(personalizacion.material, 30, offsetY); // Mostrar material
-        doc.text(personalizacion.medidasPersonalizacion, 70, offsetY);
-        doc.text(personalizacion.descripcionSeñalPersonalizada, 110, offsetY);
-        doc.text(personalizacion.cantidadPersonalizacion, 170, offsetY);
+        offsetY += 10;
 
-        if (personalizacion.imagen) {
-            const img = new Image();
-            img.src = personalizacion.imagen;
-            doc.addImage(img, 'JPEG', 200, offsetY - 5, 20, 20); // Añadir imagen de la personalización
-        }
+        // Añadir datos de las personalizaciones
+        personalizaciones.forEach((personalizacion, index) => {
+            doc.setTextColor(0, 0, 0); // Negro para contenido
+            doc.text(`${index + 1}`, 10, offsetY);
+            doc.text(personalizacion.medidasPersonalizacion, 30, offsetY);
+            doc.text(personalizacion.descripcionSeñalPersonalizada, 70, offsetY);
+            doc.text(personalizacion.cantidadPersonalizacion, 140, offsetY);
 
-        offsetY += 25; // Espacio entre filas
-    });
+            if (personalizacion.imagen) {
+                const img = new Image();
+                img.src = personalizacion.imagen;
+                doc.addImage(img, 'JPEG', 170, offsetY - 5, 20, 20); // Añadir imagen de la personalización
+            }
 
-    // Guardar PDF
-    doc.save("Formulario_Señalizacion_Personalizaciones.pdf");
+            offsetY += 25; // Espacio entre filas
+        });
+
+        // Guardar PDF
+        doc.save("Formulario_Señalizacion_Personalizaciones.pdf");
+    } else {
+        alert("El nombre de la empresa es obligatorio para generar el PDF.");
+    }
 });
 
 // Limpiar formulario
