@@ -1,0 +1,14 @@
+{
+	"folders": [
+		{
+			"path": "../programacion"
+		},
+		{
+			"name": "Programacion",
+			"path": "../programacion/Programacion"
+		}
+	],
+	"settings": {
+		"liveServer.settings.multiRootWorkspaceName": "programacion"
+	}
+}
