@@ -1,10 +1,12 @@
 /* Estilo para los botones */
-img{
+img {
     max-width: 150px;
 }
-p{
+
+p {
     text-align: center;
 }
+
 button {
     width: 100%;
     padding: 6px; /* Tamaño de padding reducido para hacerlos más pequeños */
@@ -30,9 +32,8 @@ body {
     margin: 0;
     padding: 0;
     color: #333;
-    background: linear-gradient(rgba(255, 255, 255, 0.8), rgba(255, 255, 255, 0.8)), url('img/su_imagen_de_fondo.jpg'); /* Cambia esta URL por la imagen que desees */
+    background: linear-gradient(rgba(255, 255, 255, 0.8), rgba(255, 255, 255, 0.8)), url('img/fondo.jpg') no-repeat center center fixed; /* Ruta corregida de la imagen */
     background-size: cover; /* Asegúrate de que la imagen cubra todo el fondo */
-    background-repeat: no-repeat;
     background-attachment: fixed; /* Mantiene la imagen de fondo fija al hacer scroll */
 }
 
