@@ -141,19 +141,13 @@ document.getElementById("generarPDF").addEventListener("click", function() {
     doc.setTextColor(0, 51, 102); // Azul oscuro para el título
     doc.text("FORMULARIO PETICIÓN SEÑALIZACIÓN Y PERSONALIZACIONES", 10, 10);
 
-    // Añadir nombre de la empresa (proveniente de cliente.html)
-    const nombreEmpresa = prompt("Introduce el nombre de la empresa:");
-    doc.setFontSize(12);
-    doc.setTextColor(0, 0, 0); // Negro
-    doc.text(`Nombre de la Empresa: ${nombreEmpresa}`, 10, 20); // Añadir nombre de la empresa
-
     // Sección de "SEÑAL METÁLICA"
     doc.setFontSize(12);
     doc.setTextColor(0, 0, 0); // Color negro para subtítulos
-    doc.text("SEÑAL METÁLICA", 10, 30);
+    doc.text("SEÑAL METÁLICA", 10, 20);
 
     // Títulos de la tabla
-    let offsetY = 40;
+    let offsetY = 30;
     doc.setFontSize(10);
     doc.setTextColor(105, 105, 105); // Gris para títulos de columnas
     doc.text("POSICIÓN", 10, offsetY);
@@ -198,10 +192,11 @@ document.getElementById("generarPDF").addEventListener("click", function() {
     doc.setFontSize(10);
     doc.setTextColor(105, 105, 105); // Gris para títulos de columnas
     doc.text("POSICIÓN", 10, offsetY);
-    doc.text("MEDIDAS", 30, offsetY);
-    doc.text("DESCRIPCIÓN", 70, offsetY);
-    doc.text("CANTIDAD", 140, offsetY);
-    doc.text("IMAGEN", 170, offsetY);
+    doc.text("MATERIAL", 30, offsetY); // Columna para material
+    doc.text("MEDIDAS", 70, offsetY);
+    doc.text("DESCRIPCIÓN", 110, offsetY);
+    doc.text("CANTIDAD", 170, offsetY);
+    doc.text("IMAGEN", 200, offsetY); // Ajuste de posición
 
     offsetY += 10;
 
@@ -209,14 +204,15 @@ document.getElementById("generarPDF").addEventListener("click", function() {
     personalizaciones.forEach((personalizacion, index) => {
         doc.setTextColor(0, 0, 0); // Negro para contenido
         doc.text(`${index + 1}`, 10, offsetY);
-        doc.text(personalizacion.medidasPersonalizacion, 30, offsetY);
-        doc.text(personalizacion.descripcionSeñalPersonalizada, 70, offsetY);
-        doc.text(personalizacion.cantidadPersonalizacion, 140, offsetY);
+        doc.text(personalizacion.material, 30, offsetY); // Mostrar material
+        doc.text(personalizacion.medidasPersonalizacion, 70, offsetY);
+        doc.text(personalizacion.descripcionSeñalPersonalizada, 110, offsetY);
+        doc.text(personalizacion.cantidadPersonalizacion, 170, offsetY);
 
         if (personalizacion.imagen) {
             const img = new Image();
             img.src = personalizacion.imagen;
-            doc.addImage(img, 'JPEG', 170, offsetY - 5, 20, 20); // Añadir imagen de la personalización
+            doc.addImage(img, 'JPEG', 200, offsetY - 5, 20, 20); // Añadir imagen de la personalización
         }
 
         offsetY += 25; // Espacio entre filas

@@ -1,62 +1,102 @@
-body {
-    font-family: 'Calibri', sans-serif; /* Cambiar a Calibri */
-    background-color: #f0f0f0; /* Fondo gris claro */
-    color: #333; /* Texto oscuro */
-    margin: 20px;
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-}
-
-h1 {
-    color: #003366; /* Azul oscuro */
-    text-align: center;
-}
-
-h2 {
-    color: #00509e; /* Azul más claro */
-    margin-top: 20px;
-}
-
-form {
-    background-color: #ffffff; /* Fondo blanco para el formulario */
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-}
-
-label {
-    display: block;
-    margin: 10px 0 5px;
-}
-
-input[type="text"], select, input[type="file"] {
-    width: 100%;
-    padding: 10px;
-    margin-bottom: 10px;
-    border: 1px solid #ccc; /* Borde gris claro */
-    border-radius: 4px;
-    transition: border-color 0.3s;
-}
-
-input[type="text"]:focus, select:focus {
-    border-color: #00509e; /* Borde azul al enfocar */
-}
-
+/* Estilo para los botones */
 button {
-    padding: 10px 15px;
-    background-color: #003366; /* Azul oscuro */
+    width: 100%;
+    padding: 6px; /* Tamaño de padding reducido para hacerlos más pequeños */
+    margin: 5px 0; /* Espaciado vertical entre los botones */
+    background-color: #007bff; /* Color de fondo del botón */
     color: white;
     border: none;
     border-radius: 4px;
     cursor: pointer;
-    transition: background-color 0.3s;
+    font-size: 14px; /* Tamaño de fuente del botón */
+    transition: background-color 0.3s ease, transform 0.2s; /* Añadir transición para el fondo y el efecto de transformación */
 }
 
+/* Efecto al pasar el ratón por encima */
 button:hover {
-    background-color: #002244; /* Azul más oscuro al pasar el mouse */
+    background-color: #0056b3; /* Color más oscuro al pasar el ratón */
+    transform: scale(1.05); /* Escalar ligeramente el botón */
 }
 
-img {
-    align-items: center;
+/* General styles */
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    color: #333;
+    background: linear-gradient(rgba(255, 255, 255, 0.8), rgba(255, 255, 255, 0.8)), url('img/su_imagen_de_fondo.jpg'); /* Cambia esta URL por la imagen que desees */
+    background-size: cover; /* Asegúrate de que la imagen cubra todo el fondo */
+    background-repeat: no-repeat;
+    background-attachment: fixed; /* Mantiene la imagen de fondo fija al hacer scroll */
+}
+
+/* Estilo para el contenedor del formulario */
+h1, h2 {
+    text-align: center;
+    color: #0056b3; /* Azul */
+}
+
+form {
+    max-width: 600px; /* Ancho máximo para escritorio */
+    margin: 20px auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: white;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Estilo de los elementos de formulario */
+label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+input[type="text"],
+input[type="number"],
+select,
+textarea {
+    width: 100%; /* Hacer que los inputs y selects ocupen el 100% del contenedor */
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+/* Estilo para lista de señales y personalizaciones */
+h3 {
+    margin-top: 20px;
+    color: #0056b3; /* Azul */
+}
+
+ul {
+    list-style-type: none; /* Quitar los puntos de la lista */
+    padding: 0;
+}
+
+li {
+    padding: 10px;
+    border-bottom: 1px solid #ddd; /* Línea separadora */
+}
+
+/* Media Queries para móviles */
+@media (max-width: 600px) {
+    h1 {
+        font-size: 24px; /* Tamaño de fuente más pequeño en móvil */
+    }
+
+    h2 {
+        font-size: 20px;
+    }
+
+    button {
+        font-size: 14px; /* Tamaño de fuente del botón */
+    }
+
+    input[type="text"],
+    input[type="number"],
+    select,
+    textarea {
+        font-size: 14px; /* Tamaño de fuente más pequeño en inputs */
+    }
 }
