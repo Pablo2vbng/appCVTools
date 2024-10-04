@@ -10,175 +10,170 @@
 </head>
 <body>
     <h1>Formulario de Señalización y Personalizaciones</h1>
-    <h1> <img src="img/ANAGRAMA.bmp" alt="logo"> </h1>
+    <h1> <img src="img/logo.png" alt="logo"> </h1>
 
-    <!-- Formulario 1: Señalización Metálica -->
-    <form id="formSeñalizacion" action="#" method="POST" enctype="multipart/form-data">
-        <h2>Señalización Metálica</h2>
-        <label>Tipo de señal:</label>
-        <select name="tipoSeñal" id="tipoSeñal">
-            <option value="economica">Económica</option>
-            <option value="homologada">Homologada</option>
-        </select>
-
-        <div id="definitivas" style="display:none;">
-            <label>Tipo:</label>
-            <select name="tipoDefinitiva" id="tipoDefinitiva">
-                <option value="MOPU">MOPU (Definitivas fondo blanco)</option>
-                <option value="MOPT">MOPT (Obras fondo amarillo)</option>
+    <!-- Contenedor para los formularios -->
+    <div class="form-container">
+        <!-- Formulario 1: Señalización Metálica -->
+        <form id="formSeñalizacion" action="#" method="POST" enctype="multipart/form-data">
+            <h2>Señalización Metálica</h2>
+            <label>Tipo de señal:</label>
+            <select name="tipoSeñal" id="tipoSeñal">
+                <option value="economica">Económica</option>
+                <option value="homologada">Homologada</option>
             </select>
 
-            <label>Medidas:</label>
-            <select name="medidas" id="medidas">
-                <option value="">Selecciona una medida</option>
-                <optgroup label="Triangulares">
-                    <option value="70">70 cm</option>
-                    <option value="90">90 cm</option>
-                    <option value="135">135 cm</option>
-                </optgroup>
-                <optgroup label="Circulares">
-                    <option value="60">60 cm</option>
-                    <option value="90">90 cm</option>
-                    <option value="120">120 cm</option>
-                </optgroup>
-                <optgroup label="Cuadradas">
-                    <option value="60">60 cm</option>
-                    <option value="90">90 cm</option>
-                    <option value="120">120 cm</option>
-                </optgroup>
-                <optgroup label="Stops"></optgroup>
-                    <option value="60">60 cm</option>
-                    <option value="90">90 cm</option>
-                    <option value="120">120 cm</option>
-                </optgroup>
-                <optgroup label="Rectangulares">
-                    <option value="60x30">60 x 30 cm</option>
-                    <option value="40x20">40 x 20 cm</option>
-                    <option value="60x40">60 x 40 cm</option>
-                    <option value="60x90">60 x 90 cm</option>
-                </optgroup>
+            <div id="definitivas" style="display:none;">
+                <label>Tipo:</label>
+                <select name="tipoDefinitiva" id="tipoDefinitiva">
+                    <option value="MOPU">MOPU (Definitivas fondo blanco)</option>
+                    <option value="MOPT">MOPT (Obras fondo amarillo)</option>
+                </select>
+
+                <label>Medidas:</label>
+                <select name="medidas" id="medidas">
+                    <option value="">Selecciona una medida</option>
+                    <optgroup label="Triangulares">
+                        <option value="70">70 cm</option>
+                        <option value="90">90 cm</option>
+                        <option value="135">135 cm</option>
+                    </optgroup>
+                    <optgroup label="Circulares">
+                        <option value="60">60 cm</option>
+                        <option value="90">90 cm</option>
+                        <option value="120">120 cm</option>
+                    </optgroup>
+                    <optgroup label="Cuadradas">
+                        <option value="60">60 cm</option>
+                        <option value="90">90 cm</option>
+                        <option value="120">120 cm</option>
+                    </optgroup>
+                    <optgroup label="Stops"></optgroup>
+                        <option value="60">60 cm</option>
+                        <option value="90">90 cm</option>
+                        <option value="120">120 cm</option>
+                    </optgroup>
+                    <optgroup label="Rectangulares">
+                        <option value="60x30">60 x 30 cm</option>
+                        <option value="40x20">40 x 20 cm</option>
+                        <option value="60x40">60 x 40 cm</option>
+                        <option value="60x90">60 x 90 cm</option>
+                    </optgroup>
+                </select>
+
+                <label>Nivel de reflectancia:</label>
+                <select name="reflectancia" id="reflectancia">
+                    <option value="">Selecciona un nivel</option>
+                    <option value="normal">Normal</option>
+                    <option value="nivel1">Nivel 1</option>
+                    <option value="nivel2">Nivel 2</option>
+                    <option value="nivel3">Nivel 3</option>
+                </select>
+
+                <!-- Botón para ver PDF de señales homologadas -->
+                <button type="button" onclick="verPDF('pdfs/SEÑALES HOMOLOGADAS.pdf')">Ver Señales Homologadas</button>
+                <button type="button" onclick="verPDF('pdfs/SEÑALES METÁLICAS MOPU.pdf')">Ficha técnica señales MOPU (DEFINITIVAS)</button>
+                <button type="button" onclick="verPDF('pdfs/SEÑALES METALICAS MOPT.pdf')">Ficha técnica señales MOPT (OBRAS)</button>
+            </div>
+
+            <div id="economica" style="display:none;">
+                <label>Modelo:</label>
+                <select name="modeloEconomica" id="modeloEconomica">
+                    <optgroup label="Triangulares">
+                        <option value="70">70 cm</option>
+                    </optgroup>
+                    <optgroup label="Circulares">
+                        <option value="50">50 cm</option>
+                    </optgroup>
+                    <optgroup label="Cuadradas">
+                        <option value="50">50 cm</option>
+                    </optgroup>
+                    <optgroup label="Stops"></optgroup>
+                        <option value="50">50 cm</option>
+                    </optgroup>
+                    <optgroup label="Rectangulares"></optgroup>
+                        <option value="40x20">40 x 20 cm</option>
+                        <option value="55x35">55 x 35 cm</option>
+                    </optgroup>
+                </select>
+
+                <label>Fondo:</label>
+                <select name="fondoEconomica" id="fondoEconomica">
+                    <option value="amarillo">Amarillo (Obra)</option>
+                    <option value="blanco">Blanco (Definitiva)</option>
+                </select>
+
+                <!-- Campo de comentarios del cliente -->
+                <label>Comentarios del cliente:</label>
+                <textarea id="comentariosEconomica" placeholder="Ingrese sus comentarios aquí"></textarea>
+
+                <!-- Botón para ver PDF de señales económicas -->
+                <button type="button" onclick="verPDF('pdfs/SEÑALES ECONOMICAS.pdf')">Ver Señales Económicas</button>
+                <button type="button" onclick="verPDF('pdfs/SEÑALES METÁLICAS ECONÓMICAS.pdf')">Ficha técnica señales económicas</button>
+            </div>
+
+            <!-- Campo para ingresar la referencia de la señal -->
+            <label>Referencia de la señal:</label>
+            <input type="text" name="referenciaSeñal" id="referenciaSeñal" placeholder="Ingrese la referencia y/o sus comentarios">
+
+            <!-- Campo para la cantidad -->
+            <label>Cantidad:</label>
+            <input type="number" name="cantidad" id="cantidad" min="1" value="1">
+            
+            <!-- Botón para añadir imagen a la señal -->
+            <label>Si lo deseas puedes añadir una imagen. Selecciona una imagen (JPG o PNG):</label>
+            <input type="file" name="imagen" id="imagen" accept="image/png, image/jpeg">
+
+            <!-- Botón para añadir la señal seleccionada -->
+            <button type="button" id="añadirImagenSeñal">Añadir Imagen </button>
+            <button type="button" id="añadirSeñal">Añadir artículo al pedido</button>
+
+            <!-- Lista de señales añadidas -->
+            <div id="listaSeñales">
+                <h3>Señales añadidas:</h3>
+                <ul id="señalesAñadidas"></ul>
+            </div>
+        </form>
+
+        <!-- Formulario 2: Personalizaciones Fuera de Catálogo -->
+        <form id="formPersonalizaciones" action="#" method="POST" enctype="multipart/form-data">
+            <h2>Personalizaciones Fuera de Catálogo</h2>
+            <label>Material:</label>
+            <select name="material">
+                <option value="aluminio">Aluminio panel sándwich 2 mm</option>
+                <option value="PVC0.7">PVC 0.7 mm</option>
+                <option value="metacrilato">Metacrilato</option>
+                <option value="PVC2">PVC 2 mm</option>
+                <option value="acero">Acero galvanizado</option>
+                <option value="adhesivo">Adhesivo</option>
             </select>
 
-            <label>Nivel de reflectancia:</label>
-            <select name="reflectancia" id="reflectancia">
-                <option value="">Selecciona un nivel</option>
-                <option value="normal">Normal</option>
-                <option value="nivel1">Nivel 1</option>
-                <option value="nivel2">Nivel 2</option>
-                <option value="nivel3">Nivel 3</option>
-            </select>
+            <label>Medidas (cm):</label>
+            <input type="text" name="medidasPersonalizacion" placeholder="Ej: 50x60">
 
-            <!-- Botón para ver PDF de señales homologadas -->
-            <button type="button" onclick="verPDF('pdfs/SEÑALES HOMOLOGADAS.pdf')">Ver Señales Homologadas</button>
-            <button type="button" onclick="verPDF('pdfs/SEÑALES METÁLICAS MOPU.pdf')">Ficha técnica señales MOPU (DEFINITIVAS)</button>
-            <button type="button" onclick="verPDF('pdfs/SEÑALES METALICAS MOPT.pdf')">Ficha técnica señales MOPT (OBRAS)</button>
-        </div>
+            <label>Descripción de la señal:</label>
+            <textarea name="descripcionSeñalPersonalizada" id="descripcionSeñalPersonalizada" placeholder="Describa la señal que necesita"></textarea>
 
-        <div id="economica" style="display:none;">
-            <label>Modelo:</label>
-            <select name="modeloEconomica" id="modeloEconomica">
-                <optgroup label="Triangulares">
-                    <option value="70">70 cm</option>
-                </optgroup>
-                <optgroup label="Circulares">
-                    <option value="50">50 cm</option>
-                </optgroup>
-                <optgroup label="Cuadradas">
-                    <option value="50">50 cm</option>
-                </optgroup>
-                <optgroup label="Stops"></optgroup>
-                    <option value="50">50 cm</option>
-                </optgroup>
-                <optgroup label="Rectangulares"></optgroup>
-                    <option value="40x20">40 x 20 cm</option>
-                    <option value="55x35">55 x 35 cm</option>
-                </optgroup>
-            </select>
+            <label>Cantidad:</label>
+            <input type="number" name="cantidadPersonalizacion" id="cantidadPersonalizacion" min="1" value="1">
 
-            <label>Fondo:</label>
-            <select name="fondoEconomica" id="fondoEconomica">
-                <option value="amarillo">Amarillo (Obra)</option>
-                <option value="blanco">Blanco (Definitiva)</option>
-            </select>
+            <!-- Campo para seleccionar la imagen de personalización -->
+            <label>Si lo deseas puedes añadir una imagen. Selecciona una imagen (JPG o PNG):</label>
+            <input type="file" name="imagenPersonalizacion" id="imagenPersonalizacion" accept="image/png, image/jpeg">
 
-            <!-- Campo de comentarios del cliente -->
-            <label>Comentarios del cliente:</label>
-            <textarea id="comentariosEconomica" placeholder="Ingrese sus comentarios aquí"></textarea>
+            <!-- Botón para añadir personalización fuera de catálogo -->
+            <button type="button" id="añadirImagenPersonalizacion">Añadir Imagen</button>
+            <button type="button" id="añadirPersonalizacion">Añadir artículo al pedido</button>
 
-            <!-- Botón para ver PDF de señales económicas -->
-            <button type="button" onclick="verPDF('pdfs/SEÑALES ECONOMICAS.pdf')">Ver Señales Económicas</button>
-            <button type="button" onclick="verPDF('pdfs/SEÑALES METÁLICAS ECONÓMICAS.pdf')">Ficha técnica señales económicas</button>
-        </div>
-
-        <!-- Campo para ingresar la referencia de la señal -->
-        <label>Referencia de la señal:</label>
-        <input type="text" name="referenciaSeñal" id="referenciaSeñal" placeholder="Ingrese la referencia y/o sus comentarios">
-
-        <!-- Campo para la cantidad -->
-        <label>Cantidad:</label>
-        <input type="number" name="cantidad" id="cantidad" min="1" value="1">
-        
-        <!-- Botón para añadir imagen a la señal -->
-        <label>Si lo deseas puedes añadir una imagen. Selecciona una imagen (JPG o PNG):</label>
-        <input type="file" name="imagen" id="imagen" accept="image/png, image/jpeg">
-
-        <!-- Botón para añadir la señal seleccionada -->
-        <button type="button" id="añadirImagenSeñal">Añadir Imagen </button>
-        <button type="button" id="añadirSeñal">Añadir artículo al pedido</button>
-
-        <!-- Lista de señales añadidas -->
-        <div id="listaSeñales">
-            <h3>Señales añadidas:</h3>
-            <ul id="señalesAñadidas"></ul>
-        </div>
-    </form>
-
-    <h1>_________________________________</h1>
-
-    <!-- Formulario 2: Personalizaciones Fuera de Catálogo -->
-    <form id="formPersonalizaciones" action="#" method="POST" enctype="multipart/form-data">
-        <h2>Personalizaciones Fuera de Catálogo</h2>
-        <label>Material:</label>
-        <select name="material">
-            <option value="aluminio">Aluminio panel sándwich 2 mm</option>
-            <option value="PVC0.7">PVC 0.7 mm</option>
-            <option value="metacrilato">Metacrilato</option>
-            <option value="PVC2">PVC 2 mm</option>
-            <option value="acero">Acero galvanizado</option>
-            <option value="adhesivo">Adhesivo</option>
-        </select>
-
-        <label>Medidas (cm):</label>
-        <input type="text" name="medidasPersonalizacion" placeholder="Ej: 50x60">
-
-        <label>Descripción de la señal:</label>
-        <textarea name="descripcionSeñalPersonalizada" id="descripcionSeñalPersonalizada" placeholder="Describa la señal que necesita"></textarea>
-
-        <label>Cantidad:</label>
-        <input type="number" name="cantidadPersonalizacion" id="cantidadPersonalizacion" min="1" value="1">
-
-        <!-- Campo para seleccionar la imagen de personalización -->
-        <label>Si lo deseas puedes añadir una imagen. Selecciona una imagen (JPG o PNG):</label>
-        <input type="file" name="imagenPersonalizacion" id="imagenPersonalizacion" accept="image/png, image/jpeg">
-
-        <!-- Botón para añadir personalización fuera de catálogo -->
-        <button type="button" id="añadirImagenPersonalizacion">Añadir Imagen</button>
-        <button type="button" id="añadirPersonalizacion">Añadir artículo al pedido</button>
-
-        <!-- Lista de personalizaciones añadidas -->
-        <div id="listaPersonalizaciones">
-            <h3>Personalizaciones añadidas:</h3>
-            <ul id="personalizacionesAñadidas"></ul>
-        </div>
-    </form>
-
-    <!-- Botón para generar el pedido en PDF -->
-    <button type="button" id="generarPDF">Generar PDF con el pedido</button>
-
-    <!-- Lista de señales añadidas (Sección Global) -->
-    <div id="listaFinalSeñales">
-        <h3>Lista Final de Señales y Personalizaciones:</h3>
-        <ul id="listaFinal"></ul>
+            <!-- Lista de personalizaciones añadidas -->
+            <div id="listaPersonalizaciones">
+                <h3>Personalizaciones añadidas:</h3>
+                <ul id="personalizacionesAñadidas"></ul>
+            </div>
+        </form>
     </div>
+
+    <!-- Botón para finalizar pedido -->
+    <button type="button" id="finalizarPedido">Finalizar Pedido</button>
 </body>
 </html>

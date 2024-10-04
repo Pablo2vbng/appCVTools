@@ -11,7 +11,7 @@ button {
     width: 100%;
     padding: 6px; /* Tamaño de padding reducido para hacerlos más pequeños */
     margin: 5px 0; /* Espaciado vertical entre los botones */
-    background-color: #007bff; /* Color de fondo del botón */
+    background-color: rgb(61, 61, 145); /* Color de fondo del botón */
     color: white;
     border: none;
     border-radius: 4px;
@@ -22,17 +22,17 @@ button {
 
 /* Efecto al pasar el ratón por encima */
 button:hover {
-    background-color: #0056b3; /* Color más oscuro al pasar el ratón */
+    background-color: rgb(61, 61, 145); /* Color más oscuro al pasar el ratón */
     transform: scale(1.05); /* Escalar ligeramente el botón */
 }
 
 /* General styles */
 body {
-    font-family: 'Arial', sans-serif;
+    font-family: 'Calibri', sans-serif;
     margin: 0;
     padding: 0;
     color: #333;
-    background: lightblue ; /* Ruta corregida de la imagen */
+    background: linear-gradient(to bottom, lightblue , rgb(61, 61, 145), lightblue); /* Ruta corregida de la imagen */
     background-size: cover; /* Asegúrate de que la imagen cubra todo el fondo */
     background-attachment: fixed; /* Mantiene la imagen de fondo fija al hacer scroll */
 }
@@ -40,11 +40,19 @@ body {
 /* Estilo para el contenedor del formulario */
 h1, h2 {
     text-align: center;
-    color: #0056b3; /* Azul */
+    color: rgb(61, 61, 145); /* Azul */
+}
+
+/* Contenedor para los formularios */
+.form-container {
+    display: flex; /* Flexbox para alinear los formularios en fila */
+    justify-content: space-between; /* Espacio entre los formularios */
+    gap: 20px; /* Espacio entre formularios */
 }
 
 form {
-    max-width: 600px; /* Ancho máximo para escritorio */
+    flex: 1; /* Para que ambos formularios ocupen el mismo espacio */
+    max-width: 48%; /* Ajustar el ancho de cada formulario */
     margin: 20px auto;
     padding: 20px;
     border: 1px solid #ccc;
@@ -73,7 +81,7 @@ textarea {
 /* Estilo para lista de señales y personalizaciones */
 h3 {
     margin-top: 20px;
-    color: #0056b3; /* Azul */
+    color: rgb(61, 61, 145); /* Azul */
 }
 
 ul {
@@ -88,6 +96,10 @@ li {
 
 /* Media Queries para móviles */
 @media (max-width: 600px) {
+    .form-container {
+        flex-direction: column; /* Los formularios vuelven a apilarse en columnas en pantallas pequeñas */
+    }
+
     h1 {
         font-size: 24px; /* Tamaño de fuente más pequeño en móvil */
     }
@@ -105,5 +117,9 @@ li {
     select,
     textarea {
         font-size: 14px; /* Tamaño de fuente más pequeño en inputs */
+    }
+
+    form {
+        max-width: 100%; /* Los formularios ocupan todo el ancho del contenedor en pantallas pequeñas */
     }
 }
