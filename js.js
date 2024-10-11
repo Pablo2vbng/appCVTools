@@ -141,12 +141,13 @@ document.getElementById("finalizarPedido").addEventListener("click", function() 
     const { jsPDF } = window.jspdf;
     const doc = new jsPDF();
 
-    const nombreCliente = prompt("Por favor, introduce el nombre de la empresa:");
+    const nombreCliente = prompt("Por favor, introduce el nombre de la empresa: En caso de pedido enviar a pedidos@cvtools.es. Presupuesto enviar a comercial@cvtools.es");
 
     if (nombreCliente) {
         // Título del documento
         doc.setFontSize(16);
         doc.text("FORMULARIO PETICIÓN SEÑALIZACIÓN Y PERSONALIZACIONES", 10, 10);
+    
 
         // Nombre del cliente
         doc.setFontSize(12);

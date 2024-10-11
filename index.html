@@ -9,7 +9,7 @@
     <script src="js.js" defer></script> <!-- Archivo js.js -->
 </head>
 <body>
-    <h1>Formulario de Señalización y Personalizaciones</h1>
+    <h1>Formulario de petición Señalización y Personalizaciones</h1>
     <h1> <img src="img/logo.png" alt="logo"> </h1>
 
     <!-- Contenedor para los formularios -->
@@ -125,8 +125,9 @@
             <input type="file" name="imagen" id="imagen" accept="image/png, image/jpeg">
 
             <!-- Botón para añadir la señal seleccionada -->
+            <button type="button" id="añadirSeñal">Añadir artículo a la peticion</button>
             <button type="button" id="añadirImagenSeñal">Añadir Imagen </button>
-            <button type="button" id="añadirSeñal">Añadir artículo al pedido</button>
+            
 
             <!-- Lista de señales añadidas -->
             <div id="listaSeñales">
@@ -162,8 +163,9 @@
             <input type="file" name="imagenPersonalizacion" id="imagenPersonalizacion" accept="image/png, image/jpeg">
 
             <!-- Botón para añadir personalización fuera de catálogo -->
+            <button type="button" id="añadirPersonalizacion">Añadir artículo a la petición</button>
             <button type="button" id="añadirImagenPersonalizacion">Añadir Imagen</button>
-            <button type="button" id="añadirPersonalizacion">Añadir artículo al pedido</button>
+            
 
             <!-- Lista de personalizaciones añadidas -->
             <div id="listaPersonalizaciones">
@@ -175,6 +177,7 @@
 
     <!-- Botón para finalizar pedido -->
     <button type="button" id="finalizarPedido">Finalizar Petición</button>
-
+    <p>Se ha descargado tu petición. Envía tu pdf a comercial@cvtools.es en caso de presupuesto o pedidos@cvtools.es en caso de pedido</p>
+    <p>Powered by CV Tools, S.L. Todos los derechos reservados. www.cvtools.es </p>
 </body>
 </html>
